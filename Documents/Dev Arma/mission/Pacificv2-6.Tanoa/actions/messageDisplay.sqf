@@ -1,0 +1,1 @@
+[str("You Text") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("You Text")] spawn BIS_fnc_infoText;

@@ -1,0 +1,1 @@
+["I_CargoNet_01_ammo_F","civ_spawn_1"] remoteExecCall ["TON_fnc_spawnCaisseAir",2];

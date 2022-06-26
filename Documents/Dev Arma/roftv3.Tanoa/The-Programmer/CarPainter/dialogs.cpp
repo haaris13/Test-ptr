@@ -1,0 +1,5 @@
+#include "config_master.cpp"
+#include "rvmats\config_rvmats.cpp"
+#include "localization.cpp"
+#include "dialogs\common.hpp"
+#include "dialogs\CarPainter.hpp"

@@ -1,0 +1,28 @@
+// effet peur suite à drogue ou pilule ? ( adiction )
+ApanPercMstpSnonWnonDnon_G01
+ApanPercMstpSnonWnonDnon_G02
+ApanPercMstpSnonWnonDnon_G03
+
+
+// pilule
+UnconsciousMedicFromPistol
+UnconsciousMedicFromPistolKneel
+UnconsciousMedicFromBinoc
+UnconsciousMedicFromBinocKneel
+UnconsciousMedicFromRifle
+UnconsciousMedicFromRifleKneel
+UnconsciousMedicFromUnarmed
+UnconsciousMedicFromUnarmedKneel
+UnconsciousMedicOut
+
+
+// Convulse
+UnconsciousReviveHead_Base
+UnconsciousReviveHead_A
+UnconsciousReviveHead_B
+UnconsciousReviveHead_C
+
+UnconsciousReviveDefault_A
+UnconsciousReviveDefault_B
+UnconsciousReviveDefault_C
+UnconsciousReviveDefault_Base

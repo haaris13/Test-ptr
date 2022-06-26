@@ -1,0 +1,793 @@
+﻿class CfgServer {
+    DatabaseName = "altislife"; //Config name that'll be grep in the extdb-conf.ini. Default: [altislife]
+    DebugMode = 0; //Enable many server/hc debugging logs. Default: 0 (1 = Enabled / 0 = Disabled)
+    HeadlessSupport = 0; //Enable/Disable Headless client support. Default: 1 (1 = Enabled / 0 = Disabled)
+    /*
+    Enabled: When HeadlessSupport is set to 1 (enabled), the server will run without fault when no Headless Client is connected. However, it will support the Headless Client if you choose to connect one.
+    Disabled: If HeadlessSupport is set to 0 (disabled), the connection of a Headless Client will make no difference. This option will increase server performance a TINY but negligible amount.
+    */
+};
+onLoadName = "Pacific Island";
+author = "pacific-island.com";
+loadScreen = "textures\armalife.jpg";
+joinUnassigned = 1;
+respawn = BASE;
+respawndelay = 5;
+disabledAI = 1;
+disableChannels[]={0,1,2};
+enableDebugConsole[] = {"76561198059757685"};
+
+respawnDialog = 0;
+saving = 0;
+
+class Header
+{
+	gameType = RPG;
+	minPlayers = 1;
+	maxPlayers = 152;
+};
+unsafeCVL = 1;
+wreckLimit = 3;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 320;
+corpseLimit = 10;
+corpseRemovalMinTime = 999;
+corpseRemovalMaxTime = 9999;
+
+#include "CfgRemoteExec.hpp"
+#include "config\Config_Master.hpp"
+#include "dialog\MasterHandler.h"
+#include "config\CfgNameTags.hpp"
+#include "config\fire_config.hpp"
+#include "config\ASN_BlackjackConfig.hpp"
+
+#include "The-Programmer\theprogrammer_dialog_master.cpp"
+#include "script\nekro\argentsal\dialog\LID_ARG_Sale_Type_Text.hpp"
+#include "script\nekro\argentsal\dialog\LID_ARG_Sale_Show.hpp"
+#include "script\nekro\UI\Hazendarck_incouncious_ui.hpp"
+#include "script\nekro\pole_emploi\menu\dialogs\MyDialog.hpp" // ADD BY NEKRO
+#include "script\nekro\pole_emploi\metiers\ERDF\Dialog\Compteur.hpp" // ADD BY NEKRO
+
+#include "LID\HackSystem\dialog\Hack_system_V2_Infos_Affiche.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Console_CMD.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Console_Tuppy.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Erreur.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Infos_base.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Infos_system.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Mongoole_shrome.hpp" // ADD BY NEKRO
+#include "LID\HackSystem\dialog\Hack_system_V2_Windaube.hpp" // ADD BY NEKRO
+#include "LID\radar\config\configradar.hpp"
+
+#include "ROFT\Dialogs\Barrier_Menu_Defines.hpp"
+#include "ROFT\Dialogs\Barrier_Menu_GUI.hpp"
+
+class RscTitles {
+
+  #include "The-Programmer\Advanced_Insurance\RscTitles.hpp"
+  //#include "dialog\dlg_ui.hpp" // Emmett : UI avant
+  #include "dialog\hud_stats.hpp" // Emmett : UI ROFT
+  #include "dialog\dlg_progress.hpp"
+  #include "dialog\hud_nameTags.h"
+  #include "dialog\hud_vehicleTags.h"
+  #include "dialog\hud_statusBar.hpp"
+  #include "LID\Diplomatique\dialog\Passeport_diplomatique.hpp" // ADD BY NEKRO
+};
+
+class introLife {
+   idd = -1;
+   duration = 6;
+   class controls
+   {
+         class ExampleControl
+         {
+            idc = -1;
+            type = 0;
+            style = 2192;
+            x = 0.125;
+            y = 0.125;
+            h = 0.75;
+            w = 0.75;
+            font = "EtelkaNarrowMediumPro";
+            sizeEx = 0.05; 
+            colorBackground[] = {1,1,1,0};
+            colorText[] = {1,1,1,1};
+            text = "textures\logo.paa";
+            lineSpacing = 1;
+        }; 
+    }; 
+}; 
+
+
+#include "Functions.hpp"
+class CfgDebriefing
+{
+	class NotWhitelisted
+	{
+		title = "Mission Failed";
+		subtitle = "You are not white-listed to use this slot";
+		description = "You are not allowed to use this slot because you do not have the appropriate permissions, try another slot.";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+
+  class NOTEnougthCop
+  {
+    title = "Mission Failed";
+    subtitle = "Prenez votre service Police !!!";
+    description = "Prenez votre service Police !!!";
+    pictureBackground = "";
+    picture = "";
+    pictureColor[] = {0,0.3,0.6,1};
+  };
+
+  class NOTEnougthCiv
+  {
+    title = "Mission Failed";
+    subtitle = "Trop de Police !!!";
+    description = "Trop de Police !!!";
+    pictureBackground = "";
+    picture = "";
+    pictureColor[] = {0,0.3,0.6,1};
+  };
+
+  class BADNAME
+  {
+    title = "Mission Failed";
+    subtitle = "Nom et Prénom RP Obligatoire !";
+    description = "Vous n'avez pas un Nom et Prénom RP (Sous Forme Prénom Nom, Un seul espace Accepté et Pas de caractéres spéciaux)";
+    pictureBackground = "";
+    picture = "";
+    pictureColor[] = {0,0.3,0.6,1};
+  };
+
+	class Blacklisted
+	{
+		title = "Mission Failed";
+		subtitle = "You are blacklisted from cops";
+		description = "You are not allowed to be a cop due to previous actions and the admins have removed you from being a cop.";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0,0.3,0.6,1};
+	};
+
+  class Langue
+  {
+    title = "La langue de votre jeu n'est pas la bonne !";
+    subTitle = "Changez la langue";
+    description = "Français et Anglais sont autorisé uniquement";
+    pictureBackground = "";
+    picture = "";
+    pictureColor[] = {0,0.3,0.6,1};
+  };
+};
+
+class CfgNotifications
+{
+  #include "The-Programmer\Repair_system\notifications.cpp" //rajout rapair system par alharis
+
+	class MedicalRequestEmerg
+	{
+		title = "Demande Médecin";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "%1";
+		duration = 5;
+		priority = 7;
+	};
+
+  class BaliseDepann
+  {
+    title = "Balise Dépanneur";
+    iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+    description = "%1";
+    duration = 5;
+    priority = 7;
+  };
+
+  class MedicalUnconscious
+  {
+    title = "Alerte Inconscient";
+    iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+    description = "%1";
+    duration = 5;
+    priority = 7;
+  };
+
+  class AlertFront
+  {
+    title = "Alerte Radar";
+    iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+    description = "%1";
+    duration = 5;
+    priority = 7;
+  };
+
+	class DeliveryAssigned
+	{
+		title = "Delivery Job Accepted";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "%1";
+		duration = 10;
+		priority = 7;
+	};
+
+	class DeliveryFailed
+	{
+		title = "Delivery Job Failed";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskiconfailed_ca.paa";
+		description = "%1";
+		duration = 7;
+		priority = 7;
+	};
+
+	class DeliverySucceeded
+	{
+		title = "Delivery Job Completed";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcondone_ca.paa";
+		description = "%1";
+		duration = 6;
+		priority = 6;
+	};
+
+	class TextMessage
+	{
+		title = "Message Reçu";
+		iconPicture = "icons\dialog\ico_messagenew.paa";
+		description = "%1";
+		duration = 10;
+		priority = 6;
+	};
+
+	class PoliceDispatch
+	{
+		title = "911 Dispatch Center";
+		iconPicture = "icons\dialog\ico_messagepolice.paa";
+		description = "%1";
+		duration = 10;
+		priority = 6;
+	};
+
+	class AdminDispatch
+	{
+		title = "Admin Dispatch Center";
+		iconPicture = "icons\dialog\ico_messageadmin.paa";
+		description = "%1";
+		duration = 10;
+		priority = 6;
+	};
+
+	class AdminMessage
+	{
+		title = "Admin Message";
+		iconPicture = "icons\dialog\ico_messageadmin.paa";
+		description = "%1";
+		duration = 10;
+		priority = 5;
+	};
+
+  class LogAdmin
+  {
+    title = "Log Admin";
+    iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+    description = "%1";
+    duration = 5;
+    priority = 5;
+  };
+
+  class AlertAdmin
+  {
+    title = "Alert Admin";
+    iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+    description = "%1";
+    duration = 5;
+    priority = 4;
+  };
+};
+
+class CfgSounds
+{
+  class car_alarm { 
+  name = "car_alarm"; 
+  sound[] = {"The-Programmer\Advanced_Insurance\sounds\car_alarm.ogg", 1, 1, 5}; 
+  titles[] = {}; 
+    };
+  class sonnerie { 
+    name = "sonnerie"; 
+    sound[] = {"The-Programmer\Phone\sons\sonnerie.ogg", 1, 1, 5}; 
+    titles[] = {}; 
+  };
+
+  sounds[] = {
+  launch1,
+  launch2,
+  launch3,
+  launch4,
+  launch5,
+  launch6,
+  launch7,
+  whistling1,
+  whistling2,
+  whistling3,
+  whistling4,
+  bang01,
+  bang02,
+  bang03,
+  bang04,
+  bang05,
+  bang06,
+  bang07,
+  bang08,
+  bang09,
+  bang10,
+  bang11,
+  fizz_single_type1_1,
+  fizz_single_type1_2,
+  fizz_single_type1_3,
+  fizz_single_type1_4,
+  fizz_single_type2_1,
+  fizz_single_type2_2,
+  fizz_single_type2_3,
+  fizz_single_type2_4,
+  fizz_group1,
+  fizz_group2,
+  fizz_group3,
+  fizz_group4
+  };
+  #include "The-Programmer\Iphone_X\Sounds.hpp"
+  #include "The-Programmer\CarPainter\sounds.cpp"
+
+  class SirenLong
+  {
+    name = "SirenLong";
+    sound[] = {"\sounds\Siren_Long.ogg", 10.0, 1};
+    titles[] = {};
+  };
+
+  class Missile
+	{
+		name = "Missile";
+		sound[] = {"\sounds\missile.ogg", 10.0, 1};
+		titles[] = {};
+	};
+
+  class Eat
+  {
+    name = "Eat";
+    sound[] = {"\sounds\eat.ogg", 2.0, 1};
+    titles[] = {};
+  };
+
+  class Disqueuse
+  {
+    name = "disqueuse";
+    sound[] = {"\sounds\disqueuse.ogg", 2.0, 1};
+    titles[] = {};
+  };
+
+
+  class Drink
+  {
+    name = "Drink";
+    sound[] = {"\sounds\drink.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class Souffle
+  {
+    name = "Souffle";
+    sound[] = {"\sounds\souffle.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class CloseInv
+  {
+    name = "CloseInv";
+    sound[] = {"\sounds\closeInv.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class OpenInv
+  {
+    name = "OpenInv";
+    sound[] = {"\sounds\openInv.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class Caralarm
+  {
+    name = "caralarm";
+    sound[] = {"\sounds\car_alarm.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class Furnace
+  {
+    name = "furnace";
+    sound[] = {"\sounds\furnace.ogg", 0.5, 1};
+    titles[] = {};
+  };
+
+  class Radar
+  {
+    name = "Radar";
+    sound[] = {"\sounds\radar.ogg", 2.0, 1};
+    titles[] = {};
+  };
+
+	class medicSiren
+	{
+		name = "medicSiren";
+		sound[] = {"\sounds\medic_siren.ogg", 1.0, 1};
+		titles[] = {};
+	};
+
+  class pompierSirenStart
+  {
+    name = "pompierSirenStart";
+    sound[] = {"\sounds\pompierSirenStart.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class pompierSiren
+  {
+    name = "pompierSiren";
+    sound[] = {"\sounds\pompierSiren.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+	class tazersound
+	{
+		name = "Tazersound";
+		sound[] = {"\sounds\tazer.ogg", 0.25, 1};
+		titles[] = {};
+	};
+
+	class flashbang
+	{
+		name = "flashbang";
+		sound[] = {"\sounds\flashbang.ogg", 1.0, 1};
+		titles[] = {};
+	};
+
+  class car_lock
+  {
+    name = "car_lock";
+    sound[] = {"\sounds\car_lock.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class burn
+  {
+    name = "burn";
+    sound[] = {"\sounds\burn.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class cuff_in
+  {
+    name = "cuff_in";
+    sound[] = {"\sounds\cuff_in.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class cuff_out
+  {
+    name = "cuff_out";
+    sound[] = {"\sounds\cuff_out.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class notif
+  {
+    name = "notif";
+    sound[] = {"\sounds\alert.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class glacefolle
+  {
+    name = "glacefolle";
+    sound[] = {"\sounds\glacefolle.ogg", 0.5, 1};
+    titles[] = {};
+  };
+
+  class spacecake
+  {
+    name = "spacecake";
+    sound[] = {"\sounds\spacecake.ogg", 0.5, 1};
+    titles[] = {};
+  };
+
+  class slot_pull
+  {
+    name = "slot_pull";
+    sound[] = {"\sounds\slot_pull.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class slot_roll_stop
+  {
+    name = "slot_roll_stop";
+    sound[] = {"\sounds\slot_roll_stop.ogg", 0.5, 1};
+    titles[] = {};
+  };
+
+  class slot_jackpot
+  {
+    name = "slot_jackpot";
+    sound[] = {"\sounds\slot_jackpot.ogg", 1.0, 1};
+    titles[] = {};
+  };
+
+  class pickaxe
+  {
+      name = "pickaxe";
+      sound[] = {"\sounds\pickaxe.ogg", 0.25, 1};
+      titles[] = {};
+  };
+
+  class gather
+  {
+      name = "gather";
+      sound[] = {"\sounds\gather.ogg", 1.0, 1};
+      titles[] = {};
+  };
+
+  class sake
+  {
+      name = "sake";
+      sound[] = {"\sounds\sake.ogg", 0.5, 1};
+      titles[] = {};
+  };
+
+  class vinsRouge
+  {
+      name = "vinsRouge";
+      sound[] = {"\sounds\vinsRouge.ogg", 0.5, 1};
+      titles[] = {};
+  };
+
+  class chimie
+  {
+      name = "chimie";
+      sound[] = {"\sounds\chimie.ogg", 4.0, 1};
+      titles[] = {};
+  };
+  class instalNos {
+      name = "instalNos";
+      sound[] = {"\sounds\instalNos.ogg", 1.0, 1};
+      titles[] = {};
+  };
+  class useNos {
+      name = "useNos";
+      sound[] = {"\sounds\useNos.ogg", 1.0, 1};
+      titles[] = {};
+  };
+  class lockCarSound {
+      name = "lockCarSound";
+      sound[] = {"\sounds\carLock.ogg", 1.0, 1};
+      titles[] = {};
+  };
+
+  class unlockCarSound {
+      name = "unlockCarSound";
+      sound[] = {"\sounds\carUnlock.ogg", 0.75, 1};
+      titles[] = {};
+  };  
+
+  class rad {
+      name = "rad";
+      sound[] = {"\sounds\rad.ogg", 0.25, 1};
+      titles[] = {};
+  };
+
+	// LAUNCHES
+  /*
+  class launch1
+  {
+    name="launch1";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch1.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch2
+  {
+    name="launch2";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch2.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch3
+  {
+    name="launch3";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch3.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch4
+  {
+    name="launch4";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch4.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch5
+  {
+    name="launch5";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch5.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch6
+  {
+    name="launch6";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch6.ogg", db+10, 1};
+    titles[]={};
+  };
+  class launch7
+  {
+    name="launch7";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\launch7.ogg", db+10, 1};
+    titles[]={};
+  };
+
+  // WHISTLINGS
+
+  class whistling1
+  {
+    name="whistling1";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\whistling1.ogg", db+10, 1};
+    titles[]={};
+  };
+   class whistling2
+  {
+    name="whistling2";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\whistling2.ogg", db+10, 1};
+    titles[]={};
+  };
+   class whistling3
+  {
+    name="whistling3";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\whistling3.ogg", db+10, 1};
+    titles[]={};
+  };
+   class whistling4
+  {
+    name="whistling4";
+    sound[]={"scripts\GRAD_fireworks\audio\launches\whistling4.ogg", db+10, 1};
+    titles[]={};
+  };
+
+  // BANGS
+
+  class bang01
+  {
+    name="bang01";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang01.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang02
+  {
+    name="bang02";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang02.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang03
+  {
+    name="bang03";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang03.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang04
+  {
+    name="bang04";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang04.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang05
+  {
+    name="bang05";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang05.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang06
+  {
+    name="bang06";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang06.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang07
+  {
+    name="bang07";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang07.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang08
+  {
+    name="bang08";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang08.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang10
+  {
+    name="bang10";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang10.ogg", db+10, 1};
+    titles[]={};
+  };
+  class bang11
+  {
+    name="bang11";
+    sound[]={"scripts\GRAD_fireworks\audio\bangs\bang11.ogg", db+10, 1};
+    titles[]={};
+  };
+
+  // FIZZES
+
+   class fizz_single_type1_1
+  {
+    name="fizz_single_type1_1";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type1_1.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type1_2
+  {
+    name="fizz_single_type1_2";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type1_2.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type1_3
+  {
+    name="fizz_single_type1_3";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type1_3.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type1_4
+  {
+    name="fizz_single_type1_4";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type1_4.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type2_1
+  {
+    name="fizz_single_type2_1";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type2_1.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type2_2
+  {
+    name="fizz_single_type2_2";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type2_2.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_single_type2_3
+  {
+    name="fizz_single_type2_3";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type2_3.ogg", db+10, 1};
+    titles[]={};
+  };
+    class fizz_single_type2_4
+  {
+    name="fizz_single_type2_4";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_single_type2_4.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_group1
+  {
+    name="fizz_group1";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_group1.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_group2
+  {
+    name="fizz_group2";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_group2.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_group3
+  {
+    name="fizz_group3";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_group3.ogg", db+10, 1};
+    titles[]={};
+  };
+  class fizz_group4
+  {
+    name="fizz_group4";
+    sound[]={"scripts\GRAD_fireworks\audio\fizzes\fizz_group4.ogg", db+10, 1};
+    titles[]={};
+  };*/
+};

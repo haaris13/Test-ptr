@@ -1,0 +1,1 @@
+#define SETPATH(var1) Altis_Life_v5\The-Programmer\CarPainter\rvmats\data\var1.paa

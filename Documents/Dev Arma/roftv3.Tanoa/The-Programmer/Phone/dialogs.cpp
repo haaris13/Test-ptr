@@ -1,0 +1,5 @@
+#include "config_master.cpp"
+#include "localization.hpp"
+#include "dialogs\max_cell_phone.hpp"
+#include "dialogs\boutique_orange.hpp"
+#include "dialogs\messages_history.hpp"

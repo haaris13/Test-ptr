@@ -1,0 +1,31 @@
+/*Acts_AidlPsitMstpSsurWnonDnon_loop
+Acts_AidlPsitMstpSsurWnonDnon01
+Acts_AidlPsitMstpSsurWnonDnon02
+Acts_AidlPsitMstpSsurWnonDnon03
+Acts_AidlPsitMstpSsurWnonDnon04
+Acts_AidlPsitMstpSsurWnonDnon05
+
+Acts_carFixingWheel
+
+Acts_CivilInjuredChest_1
+Acts_CivilInjuredGeneral_1
+Acts_CivilInjuredHead_1
+Acts_CivilInjuredLegs_1
+
+Acts_Executioner_Backhand
+Acts_Executioner_Forehand
+Acts_Executioner_Kill
+Acts_Executioner_StandingLoop
+Acts_Executioner_ToPistol
+
+Acts_ExecutionVictim_Backhand
+Acts_ExecutionVictim_Forehand
+Acts_ExecutionVictim_Kill
+Acts_ExecutionVictim_Kill_End
+Acts_ExecutionVictim_Loop
+Acts_ExecutionVictim_Unbow
+*/
+
+player switchMove "Acts_Executioner_Kill";
+uisleep 1.9;
+player forceWeaponFire [(handgunWeapon player), "Single"];

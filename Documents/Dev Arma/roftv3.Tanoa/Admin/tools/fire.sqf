@@ -1,0 +1,1 @@
+ [cursorTarget] call life_fnc_revivePlayer;

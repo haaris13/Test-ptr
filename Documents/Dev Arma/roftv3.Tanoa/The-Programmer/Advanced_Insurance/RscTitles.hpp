@@ -1,0 +1,1 @@
+#include "dialogs\sticker.hpp"

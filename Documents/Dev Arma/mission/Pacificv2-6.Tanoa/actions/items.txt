@@ -1,0 +1,191 @@
+/* ====================== Outils ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("pickaxe", "Pioche");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("shovel", "Pelle");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("axe", "Hache");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("cut", "Machette");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("lockpick", "Outil de crochetage");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("defusekit", "Outils de désamorçage");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("extracteur", "Extracteur");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("radar", "Détecteur de trésor");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("boiteCouture", "Boite à couture");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("boiteOutil", "Boite à outils");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("laptop", "Ordinateur Portable");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("codesBank", "Hacking Banque");
+/* ====================== Nourriture ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("redgull", "RedGull");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("franta", "Franta");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("spirit", "Spirit");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("coffee", "Café");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("waterBottle", "Bouteille d'eau");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tbacon", "Bacon tactique");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("bakedbeans", "Boîte de fayots");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("cereals", "Boîte de céréales");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rice", "Riz");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("donuts", "Donuts");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("apple", "Pomme");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mais", "Maïs");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("cacao", "Cacao");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("raisin", "Raisin");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("banane", "Banane");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("peach", "Pêche");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rabbit_raw", "Viande de Lapin");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rabbit", "Lapin grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("salema_raw", "Filet de Saupe");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("salema", "Sardine grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("ornate_raw", "Filet d'Ornate");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("ornate", "Angelfish grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mackerel_raw", "Filet de Maquereau");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mackerel", "Maquereau grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tuna_raw", "Filet de Thon");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tuna", "Thon grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mullet_raw", "Filet de Mulet");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mullet", "Rouget frits");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("catshark_raw", "Filet de Poisson Chat");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("catshark", "roussette frit");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("turtle_raw", "Raw Turtle Meat");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("turtle_soup", "Soupe à la Tortue");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hen_raw", "poulet cru");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hen", "Noir Fried Chicken");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rooster_raw", "Coq Raw");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rooster", "Coq grillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("sheep_raw", "brebis cru");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("sheep", "moutons grillés");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("goat_raw", "chèvre cru");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("goat", "chèvre grillé");
+/* ====================== Utilitaires ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("fuelFull", "Jerrican de Carburant");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("fuelEmpty", "Jerrican Vide");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("spikeStrip", "Herse");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("zipties", "Zip Ties");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("roadcone", "Cone");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("roadbarrier", "Road Barrier");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tapesignsm", "Tape Sign Small");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tapesignwarning", "Tape Sign Warning");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tapesign", "Tape Sign");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("arrowleft", "Left Arrow Barrier");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("arrowright", "Right Arrow Barrier");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("portablebarrier", "Portable Barrier");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("blastingcharge", "Charge de dynamite");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("wirenetting", "Wire Netting");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("woodframe", "Wooden Framework");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("smallnet", "Small Fishing Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mediumnet", "Medium Fishing Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("largenet", "Large Fishing Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hugenet", "Huge Fishing Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("smallpot", "Small Crab Pot");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mediumpot", "Medium Crab Pot");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("largepot", "Large Crab Pot");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hugepot", "Huge Crab Pot");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("smallhandnet", "Small Cast Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mediumhandnet", "Medium Cast Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("largehandnet", "Large Cast Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hugehandnet", "Huge Cast Net");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("campfire", "Campfire");
+/* ====================== Drogues ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mauiwaui_unprocessed", "Graine de pavot");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mauiwaui_processed", "Héroine");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("purple_unprocessed", "Feuille de Coca");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("purple_processed", "Cocaine");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("cannabis", "Cannabis");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("marijuana", "Marijuana");
+/* ====================== Minerais ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("diamond_uncut", "Diamant Brut");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("amethyst_uncut", "Fragments d'Amethyst");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("ruby_uncut", "Fragments de rubis");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("emerald_uncut", "Fragments d'Emerald");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("sapphire_uncut", "Fragments de Sapphire");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("topaz_uncut", "Fragments de Topaz");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("aquamarine_uncut", "Fragments d'Aquamarine");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("amber_uncut", "Fragments d'Amber");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("jade_uncut", "Fragments de Jade");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tigereye_uncut", "Fragments de Tigers Eye");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("quartz_uncut", "Fragments de Quartz");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("diamond_cut", "Diamant Taillé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("amethyst_cut", "Amethyst");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("ruby_cut", "Ruby");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("emerald_cut", "Emerald");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("sapphire_cut", "Sapphire");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("topaz_cut", "Topaz");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("aquamarine_cut", "Aquamarine");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("amber_cut", "Amber");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("jade_cut", "Jade");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tigereye_cut", "Tigers Eye");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("quartz_cut", "Quartz");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("copper_unrefined", "Minerai de Cuivre");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("copper_refined", "Lingot de cuivre");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("iron_unrefined", "Minerai de Fer");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("iron_refined", "Lingot de Fer");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tin_ore", "Minerai de Tin");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tin_bar", "Lingot de Tin");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("silver_ore", "Minerai d'Argent");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("silver_bar", "Lingot d'Argent");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rhodium_ore", "Minerai de Rhodium");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("rhodium_bar", "Lingot de Rhodium");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("platinum_ore", "Minerai de Platine");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("platinum_bar", "Lingot de Platine");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gold_ore", "Minerai d'Or");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gold_bar", "Lingot d'or");
+/* ====================== Stockage ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("storagesmall", "Petit Conteneur de stockage");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("storagebig", "Grand Conteneur de stockage");
+/* ====================== Temple Maya ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("templeBones", "Ossements Maya");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("templeCoins", "Pieces rares Maya");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("templeReliques", "Reliques Maya");
+/* ====================== Cimetière ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gravesWatch", "Montres Vollées");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gravesCollar", "Colliers volés");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gravesBracelet", "Bracelets vollés");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("gravesRing", "Bagues Vollées");
+/* ====================== Archéologie Terrestre ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeTCasque", "Casque 2ème GM");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeTUniforme", "Uniforme 2ème GM");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeTOssements", "Ossements de soldats");
+/* ====================== Archéologie Sous-marin ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeSVin", "Caisse de Bordeaux");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeSCoffreT", "Trésor");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("archeSCoffreB", "Coffre a Bijoux");
+/* ====================== Bois ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tropical", "Bois Tropical");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tropicalCharpente", "Tropical Charpente");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("tropicalTonnerie", "Tropical Tonnerie");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("parc", "Bois de Parc");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("parcCharpente", "Parc Charpente");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("parcTonnerie", "Parc Tonnerie");
+/* ====================== Matériaux ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("neoprene", "Neoprene");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("aluminium", "Aluminium");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("steel", "Fragment d'Acier");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("kevlar", "Kevlar");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("plastique", "Plastique");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("ver", "Verre pilé");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("compoElectronique", "Composants Electronique");
+/* ====================== Autres ====================== */
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("serpent", "Serpent");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("peauSerpent", "Peaux de Serpent");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("oil_unprocessed", "Pétrole non raffiné");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("oil_processed", "Pétrole raffiné");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("woodencontainer", "Coffre en Bois");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("smallchest", "Petit coffre");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("mediumchest", "Coffre Moyen");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("leadbox", "Coffre en Fer");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("largechest", "Grand coffre");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("hugechest", "Énorme coffre");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("goldcoins", "Piéces d'or");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("silvercoins", "Piéces en argent");
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("pottery", "Poterie ancienne");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("goldbar", "Lingot d'or");
+
+INSERT INTO `altislife`.`virtualitems` (variable, displayName) VALUES ("string", "String")
