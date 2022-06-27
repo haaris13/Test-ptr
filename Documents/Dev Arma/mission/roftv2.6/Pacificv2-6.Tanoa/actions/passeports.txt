@@ -1,0 +1,22 @@
+Photo Identité
+Code du pays
+N°Passeport
+Nom
+Prénoms
+Nationalité
+Sexe
+Taille
+Couleur des Yeux
+Date de Naissance
+Lieu de Naissance
+Date de Délivrance
+Autorité
+Domicile
+Date D'expiration
+Signature du tytulaire
+
+
+Visa:
+Autorité
+Date
+Raison du séjour

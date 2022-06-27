@@ -1,0 +1,77 @@
+#include "..\..\script_macros.hpp"
+/*
+	Author: Bryan "Tonic" Boardwine
+	Modified : NiiRoZz
+
+	Description:
+	Sells the house and delete all container near house.
+*/
+private["_house","_uid","_action","_houseCfg"];
+_house = param [0,ObjNull,[ObjNull]];
+_uid = steamid;
+
+diag_log "fn_sellHouse";
+
+if(isNull _house) exitWith {};
+if(!(_house isKindOf "House_F")) exitWith {};
+if(isNil {_house getVariable "house_owner"}) exitWith {["Error", "Il n'y a pas de propriétaire pour cette maison."] spawn life_fnc_showPredefinedNotification;};
+
+closeDialog 0;
+
+if((time - life_action_delay) < 5) exitWith {["Warning", localize "STR_NOTF_ActionDelay"] spawn life_fnc_showPredefinedNotification;};
+life_action_delay = time;
+
+_houseCfg = [(typeOf _house)] call life_fnc_houseConfig;
+if(EQUAL(count _houseCfg,0)) exitWith {};
+
+_action = [
+	format[localize "STR_House_SellHouseMSG",
+	(round(SEL(_houseCfg,0)/2)) call life_fnc_numberText,
+	SEL(_houseCfg,1)],localize "STR_pInAct_SellHouse",localize "STR_Global_Sell",localize "STR_Global_Cancel"
+] call BIS_fnc_guiMessage;
+
+if(_action) then {
+	diag_log "accept fn_sellHouse";
+
+	_house SVAR ["house_sold",true,true];
+	[_house] remoteExecCall ["TON_fnc_sellHouse",RSERV];
+	_house SVAR ["locked",false,true];
+	_house SVAR ["containers",nil,true];
+	deleteMarkerLocal format["house_%1",_house GVAR "uid"];
+	_house SVAR ["uid",nil,true];
+
+	_housePrice = 0;
+
+	if (["maintenance"] call life_fnc_hasPerk) then {
+		_housePrice = round((_houseCfg select 0));
+	} else {
+		_housePrice = (round((_houseCfg select 0) / 2));
+	};
+
+	BANK = BANK + _housePrice;
+	_index = life_vehicles find _house;
+
+	if(_index != -1) then {
+		life_vehicles set[_index,-1];
+		life_vehicles = life_vehicles - [-1];
+	} else {
+		diag_log "not found house on life_vehicles";
+	};
+
+	_index = [str(getPosATL _house),life_houses] call TON_fnc_index;
+	if(_index != -1) then {
+		life_houses set[_index,-1];
+		life_houses = life_houses - [-1];
+	};
+	_numOfDoors = FETCH_CONFIG2(getNumber,CONFIG_VEHICLES,(typeOf _house), "numberOfDoors");
+	for "_i" from 1 to _numOfDoors do {
+		_house SVAR [format["bis_disabled_Door_%1",_i],0,true];
+	};
+	_containers = [getPosATL _house, ["Box_IND_Grenades_F","B_supplyCrate_F"], 9] call life_fnc_nearestObjects;
+	if (count _containers > 0) then {
+		{
+			_x SVAR ["Trunk",nil,true];
+			[_x] remoteExecCall ["TON_fnc_sellHouseContainer",RSERV];
+		} forEach _containers;
+	};
+};

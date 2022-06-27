@@ -1,0 +1,30 @@
+#include "..\..\script_macros.hpp"
+/*
+	File: fn_pulloutAction.sqf
+	Author: Bryan "Tonic" Boardwine
+	
+	Description:
+	Pulls civilians out of a car if it's stopped.
+*/
+private["_crew"];
+
+_crew = crew cursorTarget;
+
+if (playerSide == civilian) then
+{
+	{
+		if(_x getVariable ["ziptied",false] && _x getVariable ["restrained",false]) then {
+			_x setVariable ["transporting",false,true]; _x SVAR ["Escorting",false,true];
+			[_x] remoteExecCall ["life_fnc_pulloutVeh",_x];
+		};
+	} forEach _crew;
+
+} else {
+
+	{
+		if(side _x != west) then {
+			_x setVariable ["transporting",false,true]; _x SVAR ["Escorting",false,true];
+			[_x] remoteExecCall ["life_fnc_pulloutVeh",_x];
+		};
+	} forEach _crew;
+};

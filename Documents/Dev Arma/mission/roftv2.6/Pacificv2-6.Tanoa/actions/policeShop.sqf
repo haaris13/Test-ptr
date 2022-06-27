@@ -1,0 +1,16 @@
+this enableSimulation false;   
+this allowDamage false;   
+this addAction[localize"STR_MAR_Cop_Item_Shop",life_fnc_virt_menu,"cop"];   
+this addAction["Gendarme",life_fnc_clothingMenu,"cop"];     
+this addAction["Brigadier",life_fnc_weaponShopMenu,"cop_gendarme"];     
+this addAction["Brigadier Chef",life_fnc_weaponShopMenu,"cop_chef_gendarme"];     
+this addAction["Maréchal des logis",life_fnc_weaponShopMenu,"cop_adjudant"];     
+this addAction["Gendarme",life_fnc_weaponShopMenu,"cop_adjudant_chef"];     
+this addAction["Adjudant",life_fnc_weaponShopMenu,"cop_major"];    
+this addAction["Major",life_fnc_weaponShopMenu,"cop_sous_lieutenant"];     
+this addAction["Lieutenant",life_fnc_weaponShopMenu,"cop_lieutenant"];   
+this addAction["Capitaine",life_fnc_weaponShopMenu,"cop_capitaine"];     
+this addAction["Commandant",life_fnc_weaponShopMenu,"cop_commandant"];   
+this addAction["Colonel",life_fnc_weaponShopMenu,"cop_colonel"];
+this addAction["Fédéraux",life_fnc_weaponShopMenu,"cop_fede"]; 
+this addAction["Licence",life_fnc_licenseShopOpen,["cAir","cg"],0,false,false,"",' playerSide == west '];

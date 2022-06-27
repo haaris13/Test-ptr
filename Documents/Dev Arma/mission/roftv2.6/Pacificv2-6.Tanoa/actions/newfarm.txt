@@ -1,0 +1,13 @@
+﻿Récolte de champignon // Récolte de Rose Digitale // Récolte d'arnica
+
+Champignon // Arnica // Rose de Digitale
+
+ Arnica traiter donne pomade ===> pomade donne +10
+
+ Champignon traiter donne Champignon nettoyé
+
+ Rose Digitale traiter donne polène de rose + Pétale de rose
+
+ Champigon nettoyé + polène de rose ====> champignon halucinogène
+
+ Pomade + pétale de rose ====> Médicament qui donne +30 en vie
